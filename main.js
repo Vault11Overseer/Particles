@@ -29,7 +29,6 @@ canvas.addEventListener('click' , function(e) {
     for(let i = 0; i < 1; i ++){
         particlesArray.push(new Particle)
         console.log(particlesArray.length)
-
     }
 });
 
@@ -41,40 +40,32 @@ canvas.addEventListener('mousemove', function(e){
     // CALL NEW PARTICLES
     for(let i = 0; i < 10; i ++){
         particlesArray.push(new Particle)
-        // console.log(particlesArray.length)
-
     }
 });
 
-/* When the user clicks on the button,
-toggle between hiding and showing the dropdown content */
-function myFunction() {
-document.getElementById("myDropdown").classList.toggle("show");
-}
+ // INTRO INSTRUCTIONS 
+ let showInstructions = true;
+// DRAWING INSTRUCTIONS TO THE SCREEN
+function drawInstructions() {
+    if (showInstructions) {
+        ctx.font = '30px Arial';
+        ctx.fillStyle = 'white';
+        ctx.fillText('Welcome to Particle Backgrounds', canvas.width / 2 - 150, canvas.height / 2);
+        ctx.fillText('Move your mouse around, to generate your own unique particles!', canvas.width / 2 - 360, canvas.height / 2 + 110);
+   }
+ }
 
-// Close the dropdown menu if the user clicks outside of it
-window.onclick = function(event) {
-if (!event.target.matches('.dropbtn')) {
-    var dropdowns = document.getElementsByClassName("dropdown-content");
-    var i;
-    for (i = 0; i < dropdowns.length; i++) {
-    var openDropdown = dropdowns[i];
-    if (openDropdown.classList.contains('show')) {
-        openDropdown.classList.remove('show');
-    }
-    }
-}
-}
-
+// TIME OUT THE INSTRUCTIONS
+setTimeout(() => {
+   showInstructions = false;
+}, 10000);
 
 // PARTICLE CLASS
 class Particle {
-    // CONSTRUCTOR 
     constructor(){
         // SETS PARTICLE TO MOUSE COORDINATES
         this.x = mouse.x;
         this.y = mouse.y;
-
         // PARTICLES SIZE, SPEED, & COLOR
         this.size = Math.random() * 10 + 1;
         this.speedX = Math.random() * 3 - 1.5;
@@ -82,7 +73,7 @@ class Particle {
         this.color = 'hsl(' + hue + ', 100%, 50%)';
     }
 
-    // UPDATE
+    // UPDATING THE PARTICLES
     update(){
         // UPDATE THE PARTICLES IN RELATION TO THE SPEED
         this.x += this.speedX;
@@ -109,6 +100,8 @@ function handleParticles(){
         particlesArray[i].update();
         // CALL DRAW FOR SINGLE PARTICLE
         particlesArray[i].draw();
+
+        // SAVE FEATURE FOR LATER - CREATES A STROKE BETWEEN PARTICLES
         // LOOP THE PARTICLES ARRAY 
         // for (let j = i; j < particlesArray.length; j++){
         //     const dx = particlesArray[i].x - particlesArray[j].x;
@@ -139,8 +132,10 @@ function animate(){
     ctx.clearRect(0,0, canvas.width, canvas.height);
     // CALL HANDLE PARTICLES
     handleParticles();
+    // SHOW INSTRUCTIONS
+    drawInstructions();
     // CHANGE HUE SATURATE HUE FOR CHANGING COLORS
-    hue += 2;
+    hue += 12;
     // CALL ANIMATE LOOP
     requestAnimationFrame(animate);
 }
