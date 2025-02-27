@@ -5,7 +5,7 @@
         ## CURRENT STATUS
             Live
         ## DEMONSTRATION
-            Follow this link to see my project   
+            Follow this link to see my project https://jaredmatta.com/Particles/
 
     ### DESCRIPTION
         ## STACK
