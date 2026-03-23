@@ -1,48 +1,112 @@
-#### TITLE
-    Particles
+# Particles
 
-    ### STATUS
-        ## CURRENT STATUS
-            Live
-        ## DEMONSTRATION
-            Follow this link to see my project https://alteredartco.com/particles/
+An interactive HTML5 canvas application that renders animated, multi-colored particles that respond dynamically to mouse movement.
 
-    ### DESCRIPTION
-        ## STACK
-            * HTML
-            * JavaScript
-        ## SHORT DESCRIPTION
-            This is a simple program that randomly paints multi-color particles, based on your mouse position, to your screen.
-        ## LONG DESCRIPTION
-            This was a fun project using JavaScript to paint on an HTML canvas, which is basically your screen.
-            Particles spread and fill are based on whether you click or tap on your mouse pad.
-        ## FUTURE DEVELOPMENT
-            In the future, I plan on adding some slider settings to change the particles size, shape, color, etc.
+## Demo
 
-    ### DEPLOYMENT
-        ## REQUIRMENTS
-            OS: ANY
-            Languages: NONE
-            Libraries: NONE
-        ## Startup Install
-            To use the finished project, simply clone the files, add them to a server, and then access the index.html.
-        ## Dev Install 
-            This is basically the same process. 
-            Seeing as this is Vanilla JavaScript and HTML, there are no dependencies or libraries to install.
-                
-    ### ISSUES
-        ## FOUND AN ISSUE?
-            If you found an issue or a bug in this code, please contact me at cherokeedreemer@gmail.com.
-            Or if you know how to fix it and want to fix it, please make a git push with your changes.
-        ## ISSUE LOG
-            None
+Live demo: https://jaredmatta.com/particles/
 
-    ### THANKS
-        The Vault 11 Overseer, thanks you for visiting. 
+---
 
+## Overview
 
+Particles is a lightweight browser-based visualization built using vanilla JavaScript and the HTML Canvas API. It generates and animates particles in real time based on user interaction, creating a dynamic visual effect driven by mouse movement.
 
+The project demonstrates fundamental concepts such as animation loops, event handling, and basic particle system simulation.
 
+---
 
+## Features
 
+- Real-time particle generation based on mouse input  
+- Multi-colored particle rendering  
+- Continuous animation loop using `requestAnimationFrame`  
+- Particle motion influenced by velocity and decay  
+- No external dependencies or frameworks  
 
+---
+
+## Tech Stack
+
+- HTML5 Canvas  
+- Vanilla JavaScript  
+
+---
+
+## Getting Started
+
+### Prerequisites
+
+- Any modern web browser
+
+### Installation
+
+1. Clone the repository:
+   git clone <repository-url>
+
+2. Navigate to the project directory:
+   cd particles
+
+3. Open `index.html` in your browser, or serve it using a local server.
+
+Example using Python:
+python -m http.server
+
+Then visit:
+http://localhost:8000
+
+---
+
+## Usage
+
+- Move your mouse across the canvas to generate particles  
+- Particles will spawn and spread outward based on cursor movement  
+- The animation runs continuously in the background  
+
+---
+
+## Project Structure
+
+particles/
+├── index.html
+├── style.css
+└── script.js
+
+---
+
+## Future Improvements
+
+- UI controls for adjusting particle size, color, and density  
+- Additional particle behaviors (gravity, attraction, etc.)  
+- Touch support for mobile devices  
+- Performance optimizations for higher particle counts  
+- Preset configurations or themes  
+
+---
+
+## Contributing
+
+Contributions are welcome. If you’d like to improve the project:
+
+1. Fork the repository  
+2. Create a feature branch  
+3. Commit your changes  
+4. Submit a pull request  
+
+---
+
+## Issues
+
+If you encounter bugs or unexpected behavior, please open an issue.
+
+---
+
+## License
+
+This project is currently unlicensed. Add a license if you plan to distribute or allow reuse.
+
+---
+
+## Acknowledgments
+
+Inspired by canvas-based particle systems and interactive visual programming experiments.

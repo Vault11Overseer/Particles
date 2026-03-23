@@ -1,20 +1,48 @@
-<!-- PARTICLES JS SANDBOX -->
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Particles Background</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
 </head>
 
 <body>
-    
-    <!-- CANVAS -->
     <canvas id="canvas"></canvas>
 
-    <script src="./main.js"></script>
-   
-    </body>
+    <div id="settings-ui">
+
+
+        <button id="menu-btn" style="
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 999999;
+    width: 48px;
+    height: 48px;
+    background: black;
+    color: white;
+    font-size: 24px;
+">
+            ☰
+        </button>
+
+
+        <div id="settings-panel">
+            <label for="density">Density</label>
+            <input type="range" id="density" min="1" max="30" value="10">
+
+            <label for="shape">Shape</label>
+            <select id="shape">
+                <option value="circle">Circle</option>
+                <option value="square">Square</option>
+            </select>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+
 </html>
