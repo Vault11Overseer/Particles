@@ -1,8 +1,13 @@
 // PARTICLES WITH JS
 
-// SETTING UP THE CANVAS
+// CANVAS
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
+let isMobile = window.innerWidth <= 768;
+
+window.addEventListener('resize', () => {
+    isMobile = window.innerWidth <= 768;
+});
 
 // CANVAS WIDTH & HEIGHT
 canvas.width = window.innerWidth;
@@ -34,13 +39,13 @@ class Particle {
         this.speedY = Math.random() * 3 - 1.5;
         this.color = 'hsl(' + hue + ', 100%, 50%)';
     }
-
+    // PARTICLE UPDATE
     update() {
         this.x += this.speedX;
         this.y += this.speedY;
         if (this.size > 0.2) this.size -= 0.1;
     }
-
+    // PARTICLE DRAW
     draw() {
         ctx.fillStyle = this.color;
         ctx.beginPath();
@@ -89,11 +94,25 @@ function drawInstructions() {
         const fontSize = Math.min(30, canvas.width / 25);
         ctx.font = fontSize + 'px Arial';
         ctx.fillStyle = 'white';
-        ctx.fillText('Welcome to Particle Backgrounds', canvas.width / 2, canvas.height / 2);
-        ctx.fillText('Move your mouse around, or drag your screen!', canvas.width / 2, canvas.height / 2 + fontSize * 2.5);
+
+        ctx.fillText(
+            'Welcome to Particles Playground!',
+            canvas.width / 2,
+            canvas.height / 2
+        );
+
+        const instructionText = isMobile
+            ? 'Tap, or drag your screen.'
+            : 'Click the screen, or drag your mouse around.';
+
+        ctx.fillText(
+            instructionText,
+            canvas.width / 2,
+            canvas.height / 2 + fontSize * 2.5
+        );
     }
 }
-
+// TIME OUT FOR TEXT DISPLAY
 setTimeout(() => {
     showInstructions = false;
 }, 3000);
@@ -139,9 +158,7 @@ canvas.addEventListener('touchstart', function (e) {
     mouse.x = e.touches[0].clientX;
     mouse.y = e.touches[0].clientY;
 
-    for (let i = 0; i < particleDensity; i++) {
-        particlesArray.push(new Particle);
-    }
+    for (let i = 0; i < particleDensity; i++) { particlesArray.push(new Particle); }
 }, { passive: false });
 
 // UI INITIALIZATION (IMPORTANT FIX)
@@ -152,12 +169,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const shapeInput = document.getElementById('shape');
 
     if (!menuBtn || !settingsPanel) return;
-
+    // TOGGLE MENU
     const toggleMenu = () => {
         settingsPanel.classList.toggle('active');
     };
 
-    // Click (desktop + mobile)
+    // CLICK (DESKTOP / MOBILE)
     menuBtn.addEventListener('click', toggleMenu);
 
     densityInput.addEventListener('input', (e) => {
@@ -168,7 +185,7 @@ document.addEventListener('DOMContentLoaded', () => {
         particleShape = e.target.value;
     });
 
-    // SYNC INITIAL STATE (Fixes mismatch if browser caches form values on refresh)
+    // SYNC INITIAL STATE - CACHED VALUES ON RESETART
     particleDensity = parseInt(densityInput.value);
     particleShape = shapeInput.value;
 });

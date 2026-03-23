@@ -1,35 +1,67 @@
 # Particles
 
-An interactive HTML5 canvas application that renders animated, multi-colored particles that respond dynamically to mouse movement.
+An interactive, mobile-friendly HTML5 canvas particle system with real-time controls and responsive input handling.
 
 ## Demo
 
-Live demo: https://jaredmatta.com/particles/
+Live demo: https://jaredmatta.com/Particles/
 
 ---
 
 ## Overview
 
-Particles is a lightweight browser-based visualization built using vanilla JavaScript and the HTML Canvas API. It generates and animates particles in real time based on user interaction, creating a dynamic visual effect driven by mouse movement.
+Particles is a lightweight browser-based visualization built using vanilla JavaScript and the HTML Canvas API. It renders animated, multi-colored particles that react to user input in real time.
 
-The project demonstrates fundamental concepts such as animation loops, event handling, and basic particle system simulation.
+The project has been expanded beyond a basic mouse-driven demo to include full mobile support, a responsive UI, and an in-app settings panel for adjusting behavior dynamically.
 
 ---
 
 ## Features
 
-- Real-time particle generation based on mouse input  
-- Multi-colored particle rendering  
-- Continuous animation loop using `requestAnimationFrame`  
-- Particle motion influenced by velocity and decay  
-- No external dependencies or frameworks  
+### Core
+
+* Real-time particle generation based on user input
+* Smooth animation loop using `requestAnimationFrame`
+* Color cycling using HSL values
+* Particle motion with velocity and size decay
+* Dynamic line connections between nearby particles
+
+---
+
+### Mobile & Responsiveness
+
+* Full touch support (`touchstart`, `touchmove`)
+* Optimized for mobile interaction and performance
+* Safe-area positioning (`env(safe-area-inset-*)`)
+* Responsive canvas resizing on window resize
+
+---
+
+### UI & Controls
+
+* Hamburger menu (☰) for settings access
+* Toggleable settings panel
+* Adjustable particle density slider
+* Shape selector:
+
+  * Circle
+  * Square
+
+---
+
+### Performance Safeguards
+
+* Density control to prevent excessive particle spawning
+* Optional particle caps for GPU safety
+* Efficient cleanup of particles via size decay
+* Reduced interaction overhead for mobile devices
 
 ---
 
 ## Tech Stack
 
-- HTML5 Canvas  
-- Vanilla JavaScript  
+* HTML5 Canvas
+* Vanilla JavaScript (no frameworks)
 
 ---
 
@@ -37,76 +69,113 @@ The project demonstrates fundamental concepts such as animation loops, event han
 
 ### Prerequisites
 
-- Any modern web browser
+* Any modern browser (mobile or desktop)
 
 ### Installation
 
 1. Clone the repository:
-   git clone <repository-url>
 
-2. Navigate to the project directory:
-   cd particles
+```
+git clone <repository-url>
+```
 
-3. Open `index.html` in your browser, or serve it using a local server.
+2. Navigate into the project:
 
-Example using Python:
+```
+cd particles
+```
+
+3. Run locally (optional):
+
+```
 python -m http.server
+```
 
-Then visit:
+Then open:
+
+```
 http://localhost:8000
+```
+
+Or simply open `index.html` directly in your browser.
 
 ---
 
 ## Usage
 
-- Move your mouse across the canvas to generate particles  
-- Particles will spawn and spread outward based on cursor movement  
-- The animation runs continuously in the background  
+### Desktop
+
+* Move your mouse across the screen to generate particles
+* Click to spawn particles at a point
+
+### Mobile
+
+* Drag or Tap your finger across the screen to generate particles
+* Tap to create bursts
+
+### Settings
+
+* Tap the ☰ (hamburger menu) in the top-left
+* Adjust:
+
+  * Particle density
+  * Particle shape
 
 ---
 
 ## Project Structure
 
+```
 particles/
 ├── index.html
-├── style.css
-└── script.js
+├── main.js
+└── favicon.ico
+```
+
+---
+
+## Key Improvements
+
+* Added full touch support for mobile devices
+* Implemented hamburger settings menu UI
+* Added live particle customization controls
+* Fixed mobile interaction issues caused by touch event blocking
+* Improved performance stability with controlled density and cleanup
+* Ensured responsive layout across screen sizes
 
 ---
 
 ## Future Improvements
 
-- UI controls for adjusting particle size, color, and density  
-- Additional particle behaviors (gravity, attraction, etc.)  
-- Touch support for mobile devices  
-- Performance optimizations for higher particle counts  
-- Preset configurations or themes  
+* Particle size and speed controls in UI
+* Color palette customization
+* Preset configurations (themes)
+* Advanced physics (gravity, attraction, collisions)
+* Further GPU optimization for large particle counts
 
 ---
 
 ## Contributing
 
-Contributions are welcome. If you’d like to improve the project:
-
-1. Fork the repository  
-2. Create a feature branch  
-3. Commit your changes  
-4. Submit a pull request  
+1. Fork the repository
+2. Create a feature branch
+3. Commit your changes
+4. Open a pull request
 
 ---
 
 ## Issues
 
-If you encounter bugs or unexpected behavior, please open an issue.
+Report bugs or unexpected behavior via the repository’s issue tracker.
 
 ---
 
 ## License
 
-This project is currently unlicensed. Add a license if you plan to distribute or allow reuse.
+No license specified. Add one if you plan to distribute or reuse.
 
 ---
 
-## Acknowledgments
+## Notes
 
-Inspired by canvas-based particle systems and interactive visual programming experiments.
+This project focuses on a clean, dependency-free implementation of a real-time particle system with practical UI controls and mobile compatibility.
